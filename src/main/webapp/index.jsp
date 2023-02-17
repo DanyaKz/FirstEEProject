@@ -45,7 +45,12 @@
     </table>
 
     <button type="button" class="btn btn-success"
-            data-bs-toggle="modal" data-bs-target="#addModal">Add a product</button>
+            data-bs-toggle="modal" data-bs-target="#addModal" style="
+                position: absolute;
+                left: 40%;
+                width: 20%;
+                height: 10%;
+                font-size: x-large;">Add a product</button>
 
 
 
@@ -59,9 +64,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure ?</p>
+                    <p style="
+                        text-align: center;
+                        font-size: x-large; "> Are you sure ?</p>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="justify-content: center;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <a id="confirmDelete" href="" class="btn btn-primary">Yes</a>
                 </div>
@@ -83,11 +90,11 @@
                 <form class="row g-3" action="add" method="post">
                     <div class="modal-body">
                         <div class="col-auto">
-                            <input name = "model" type="text" class="form-control"  placeholder="Model">
-                            <input name = "price" type="number" class="form-control"  placeholder="Price">
-                            <input name = "count" type="number" class="form-control"  placeholder="Count">
+                            <input name = "model" type="text" class="form-control mb-3"  placeholder="Model" style="text-align: center;">
+                            <input name = "price" type="number" class="form-control mb-3"  placeholder="Price" style="text-align: center;">
+                            <input name = "count" type="number" class="form-control"  placeholder="Count" style="text-align: center;">
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" style="justify-content: center;">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add</button>
                         </div>
@@ -111,12 +118,12 @@
                 <form class="row g-3" action="update" method="post">
                     <div class="modal-body">
                         <div class="col-auto">
-                            <input name = "model" type="text" class="form-control" id="model" placeholder="Model">
-                            <input name = "price" type="number" class="form-control" id="price" placeholder="Price">
-                            <input name = "count" type="number" class="form-control" id="count" placeholder="Count">
+                            <input name = "model" type="text" class="form-control mb-3" id="model" placeholder="Model" style="text-align: center;">
+                            <input name = "price" type="number" class="form-control mb-3" id="price" placeholder="Price" style="text-align: center;">
+                            <input name = "count" type="number" class="form-control mb-3" id="count" placeholder="Count" style="text-align: center;">
                             <input type="hidden" name = "id" id = "updId">
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" style="justify-content: center;">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                         </div>
@@ -130,31 +137,32 @@
 
 
 
-
-    <script src = "scripts.js" type="text/javascript"></script>
-
     <script>
-    function setDeleteId(productId){
-        document.getElementById('confirmDelete').href
-            =`delete?id=${productId}`;
-    }
+        <%@include file="scripts.js"%>
     </script>
 
-    <script>
-        function setEditData(productId){
-            $.ajax({
-                url: `update?id=${productId}`
-            }).done(function(res){
-                console.log(res);
-                let data = JSON.parse(res);
-                console.log(data);
-                document.getElementById("model").value = data.model;
-                document.getElementById("price").value = data.price;
-                document.getElementById("count").value = data.count;
-                document.getElementById('updId').value = data.id;
-            })
-        }
-    </script>
+<%--    <script>--%>
+<%--    function setDeleteId(productId){--%>
+<%--        document.getElementById('confirmDelete').href--%>
+<%--            =`delete?id=${productId}`;--%>
+<%--    }--%>
+<%--    </script>--%>
+
+<%--    <script>--%>
+<%--        function setEditData(productId){--%>
+<%--            $.ajax({--%>
+<%--                url: `update?id=${productId}`--%>
+<%--            }).done(function(res){--%>
+<%--                console.log(res);--%>
+<%--                let data = JSON.parse(res);--%>
+<%--                console.log(data);--%>
+<%--                document.getElementById("model").value = data.model;--%>
+<%--                document.getElementById("price").value = data.price;--%>
+<%--                document.getElementById("count").value = data.count;--%>
+<%--                document.getElementById('updId').value = data.id;--%>
+<%--            })--%>
+<%--        }--%>
+<%--    </script>--%>
 
 
 </body>
